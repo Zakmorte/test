@@ -11,11 +11,12 @@
   <body>
     <header>
       <div class="container">
-        <nav>
+        <div class="header-container">
+        <nav class="header-nav">
           <a href="/">
             <img src="./img/logo1.svg" alt="Логотип сучаної пекарні" />
           </a>
-          <ul>
+          <ul class="menu">
             <li>
               <a class="link" href="#traditions-section">Наші традиції</a>
             </li>
@@ -26,6 +27,7 @@
         </nav>
         <button class="button" type="button">Замовити дзвінок</button>
       </div>
+    </div>
     </header>
     <main>
       <section class="hero-section">
@@ -35,7 +37,7 @@
           </h1>
         </div>
       </section>
-      <section>
+      <section class="advantages-section">
         <div class="container">
           <h2 class="sr-only">Наші переваги</h2>
           <ul class="advantages-list">
@@ -47,22 +49,23 @@
       </section>
       <section class="traditions-section section" id="traditions-section">
         <div class="container">
-          <h2 class="traditions-title section-title">Новий формат традицій</h2>
-          <p class="traditions-text">
-            <span class="brand uppercase">shop bakery</span> — це пекарня, яка
-            взяла все найкраще, і зберегла смак традиційної випічки та
-            натуральність інгредієнтів.
-          </p>
-          <p class="traditions-text">
-            Ми працюємо як найвідоміші мережі—
-            <span class="brand">5 хвилин і замовлення готове.</span>
-            А ще у наших пекарень стильний дизайн та висока якість
-            обслуговування!
-          </p>
-          <img
-            src="./img/baker-man.jpg"
-            alt="Чоловік пекар дивиться на батони"
-          />
+<div class="traditions-container">
+<div class="traditions-content">
+            <h2 class="traditions-title section-title">Новий формат традицій</h2>
+            <p class="traditions-text">
+                <span class="brand uppercase">shop bakery</span> — це пекарня, яка
+                взяла все найкраще, і зберегла смак традиційної випічки та
+                натуральність інгредієнтів.
+            </p>
+            <p class="traditions-text limit class="format-card"ed">
+                Ми працюємо як найвідоміші мережі—
+                <span class="brand">5 хвилин і замовлення готове.</span>
+                А ще у наших пекарень стильний дизайн та висока якість
+                обслуговування!
+            </p>
+</div>
+            <img src="./img/baker-man.jpg" alt="Чоловік пекар дивиться на батони" />
+</div>
         </div>
       </section>
       <section class="section" id="chefs-section">
@@ -97,11 +100,10 @@
       <section class="section" id="formats-section">
         <div class="container">
           <h2 class="formats-title section-title">Формати</h2>
-          <ul>
-            <li>
-              <article>
+          <ul class="formats-list">
+            <li class="formats-item">
+              <article class="format-card">
                 <h3 class="format-title" lang="en">Walrus</h3>
-              </article>
               <div class="format-text">
                 <p>Площа: до 120 м2</p>
                 <p>Меню: розширене меню</p>
@@ -111,11 +113,11 @@
                 </p>
                 <p>Посадкові місця: є</p>
               </div>
+            </article>
             </li>
-            <li>
-              <article>
+            <li class="formats-item">
+              <article class="format-card">
                 <h3 class="format-title" lang="en">Horseshoe</h3>
-              </article>
               <div class="format-text">
                 <p>Площа: до 120 м2</p>
                 <p>Меню: розширене меню</p>
@@ -125,11 +127,11 @@
                 </p>
                 <p>Посадкові місця: є</p>
               </div>
+            </article>
             </li>
-            <li>
-              <article>
+            <li class="formats-item">
+              <article class="format-card">
                 <h3 class="format-title" lang="en">Handlebar</h3>
-              </article>
               <div class="format-text">
                 <p>Площа: до 120 м2</p>
                 <p>Меню: розширене меню</p>
@@ -139,6 +141,7 @@
                 </p>
                 <p>Посадкові місця: є</p>
               </div>
+            </article>
             </li>
           </ul>
         </div>
