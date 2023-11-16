@@ -44,7 +44,10 @@
     --color-brand-light: #cfcfbc;
 }
 /*base*/
-* {
+*
+*::after
+*::before
+{
     box-sizing: border-box;
 }
 
@@ -61,6 +64,11 @@ margin: 0 ;
 h1,h2,h3,h4,h5,h6,p {
     margin-top: 0;
 }
+
+a {
+    display: inline-block;
+}
+
 address {
     font-style: normal;
 }
@@ -218,6 +226,15 @@ background-color: var(--color-brand-normal);
     max-width: 330px;
 }
 /* cheff-section*/
+
+.chef-text p:last-child {
+    margin-bottom: 0;
+}
+
+.chef-text p:not(:last-child) {
+    margin-bottom: 24px;
+}
+
 .chef-title{
     font-size: 40px;
     font-weight: 600;
@@ -225,23 +242,56 @@ background-color: var(--color-brand-normal);
 }
 .chefs-title::before,
 .chefs-title::after {
-    display: block;
     width: 352px;
     border: 2px solid var(--color-brand-light);
     content: '';
+    position: absolute;
+    bottom: 24px;
 }
 
 .chefs-title {
-    max-width: 520px; 
-    margin: 0 auto 80spx;
+    position: relative;
+    margin: 0 auto 80px;
+}
+
+.chefs-title::before {
+    left: 0;
+}
+
+.chefs-title::after {
+    right: 0;
 }
 
 .chef-photo {
     border-radius: 4px 4px 4px 200px;
-    box-shadow: -16px 16px 0 0 var(--color-primary-light), -16px 16px 0 2px var(--color-secondary-dark);
+    box-shadow: -16px 16px 0 0 var(--color-primary-light), 
+    -16px 16px 0 2px var(--color-secondary-dark);
+}
+
+.chefs-card {
+    display: flex;
+    width: 605px;
+    height: 390px;
+    gap: 30px;
+}
+
+.chefs-list {
+    display: flex;
+    gap: 40px 30px;
+    flex-wrap: wrap;
+}
+
+.chefs-item {
+    flex-basis: calc((100%-30px)/2);
 }
 
 /*format section*/
+.formats-container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
 .formats-item {
     flex-basis: calc((100%-4)/3);
 }
@@ -249,10 +299,12 @@ background-color: var(--color-brand-normal);
 .formats-list {
     display: flex;
     gap: 20px;
+    padding: 0;
 }
 
 .format-card {
     height: 444px;
+    width: 349px;
     padding: 24px;
     background-image: linear-gradient(180deg, rgba(49, 38, 26, 0) 55.21%, rgba(49, 38, 26, 0.71) 72.92%, var(--color-primary-dark) 100%);;
     border: 1px solid lightgrey;
@@ -279,6 +331,7 @@ margin-bottom: 80px;
     justify-content: center;
     width: 44px;
     height: 44px;
+    flex-shrink: 0;
     padding: 0;
     fill: var(--color-primary-dark);
     background-color: transparent;
@@ -295,12 +348,64 @@ margin-bottom: 80px;
 
 
 /*contact section */
+.contact-section {
+    padding-bottom: 96px;
+}
+
+.contact-container {
+    display: flex;
+    gap: 32px;
+}
+
+.contact-map {
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 16px;
+}
 
 .contact-title {
     margin-bottom: 16px;
 }
 
 /* footer section */
+
+.footer{
+    padding: 32px 0;
+}
+
+.footer-container {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-basis:50%;
+    gap: 20px;
+}
+
+.footer-logo {
+    flex-grow: 1;
+}
+
+.footer-menu {
+    flex-grow: 1;
+}
+
+.footer-address {
+    display: flex;
+    flex-basis: 50%;
+    gap: 20px;
+}
+
+.address-info {
+    display: flex;
+    flex-grow: 1;
+}
+
+.address-list {
+    flex-grow: 1;
+}
 
 .address-link {
     color: var(--color-primary-light);
@@ -326,9 +431,68 @@ margin-bottom: 80px;
 }
 
 .footer {
+    position: relative;
     background-image: url('../img/footer-background.png');
     background-color: var(--color-primary-dark);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.footer::before {
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    bottom: 0;
+    left: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url(../img/hleb.png);
+    content: '';
+}
+
+.footer::after {
+    position: absolute;
+    background-image: url(../img/baton.png);
+    width: 380px;
+        height: 190px;
+        bottom: 0;
+        right: 0;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    content: '';
+}
+
+/* modal window*/
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    position: relative;
+    width: 880px;
+    height: 880px;
+    background-color: var(--color-primary-light);
+    border-radius: 32px;
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal-btn-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
 }
